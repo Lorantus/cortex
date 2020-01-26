@@ -1,9 +1,9 @@
 import request from 'request-promise';
-import progress from 'request-progress';
 import fs from 'fs';
 import sanitize from 'sanitize-filename';
 import NodeID3 from 'node-id3';
 import URL from 'url';
+import ProgressBar from 'cli-progress';
 import DownloadEpisode from './DownloadEpisode';
 
 export default {
@@ -80,12 +80,22 @@ export default {
                 }
             },
 
-            download(episode) {
+            async download(episode, multiProgressbar) {
                 const episodeContext = this.getEpisodeContext(episode),
-                    fullFileName = `${destinationFolder}/${episodeContext.fileName}`;
+                    fileName = episodeContext.fileName,
+                    fullFileName = `${destinationFolder}/${fileName}`;
 
-                return DownloadEpisode.download(episodeContext.url, fullFileName)
-                    .then(() => this.updateID3Tags(fullFileName, episodeContext.extra))
+                const progressBar = multiProgressbar.create(100, 0);
+                const progressActions = {
+                    start: () => progressBar.start(100, 0, {fileName, statut: ', démarrage'}),
+                    progress: state => progressBar.update(state.percent * 100, {fileName, statut: ''}),
+                    end: () => progressBar.update(100, {fileName, statut: ', terminé'}),
+                    eror: err => progressBar.update(0, {fileName, statut: err.message})
+                };
+
+                await DownloadEpisode.download(episodeContext.url, fullFileName, progressActions);
+
+                return this.updateID3Tags(fullFileName, episodeContext.extra);
             },
 
             buildDownloadPage(uri, queryParams) {
@@ -119,14 +129,14 @@ export default {
             },
 
             extractDownloadEpisodesNumber() {
-                let nbEpisodes = 0, nbDownload=0;
+                let nbEpisodes = 0, nbDownload = 0;
                 this.downloadURL(url, 
                     episodes => {
                         console.log(`Nombres d'épisodes: ${episodes.length}`);
                         nbEpisodes += episodes.length;
                         nbDownload++;
                     })
-                    .then(() => console.log(`Nombre d'épisode(s): ${nbEpisodes} sur ${nbDownload} téléchargement(s)`));
+                    .then(() => console.log(`Nombre d'épisode(s): ${nbEpisodes} sur ${nbDownload} page(s)`));
             },
 
             extractDownloadInformations() {
@@ -158,11 +168,19 @@ export default {
             },        
 
             downloadPages() {
+                const multiProgressbar = new ProgressBar.MultiBar({ 
+                    format: `{bar} {percentage}% {fileName}{statut}`,
+                    barCompleteChar: '\u2588',
+                    barIncompleteChar: '\u2591',
+                    clearOnComplete: false,
+                    hideCursor: true
+                });
                 this.downloadURL(url,
                     episodes => {
-                        const actions = episodes.map(episode => 
-                            this.downloadFromURN(episode.urn)
-                                .then(episodeURN => this.download(Object.assign({}, episode, episodeURN))))
+                        const actions = episodes.map(async episode => {
+                            const episodeURN = await this.downloadFromURN(episode.urn);
+                            return await this.download(Object.assign({}, episode, episodeURN), multiProgressbar);
+                        });
                         return Promise.all(actions);
                     })
             }
