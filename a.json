@@ -1,0 +1,102 @@
+{
+    "id": "10535171",
+    "mediaType": "AUDIO",
+    "vendor": "RTS",
+    "urn": "urn:rts:audio:10535171",
+    "title": "Scanner - Espions Superstars",
+    "imageUrl": "https://www.rts.ch/2019/12/09/11/19/10528247.image/16x9",
+    "imageTitle": "Logo Scanner [RTS]",
+    "type": "EPISODE",
+    "date": "2019-07-04T06:06:24+02:00",
+    "duration": 3216000,
+    "podcastHdUrl": "https://rtsww-a-d.rts.ch/couleur3/programmes/scanner/2019/scanner_20190704_full_scanner_3499d384-4f02-414f-ad24-89f541a9cdd2-128k.mp3?mediaId=10535171",
+    "playableAbroad": true,
+    "socialCountList": [
+        {
+            "key": "srgView",
+            "value": 51
+        },
+        {
+            "key": "srgLike",
+            "value": 0
+        },
+        {
+            "key": "fbShare",
+            "value": 0
+        },
+        {
+            "key": "twitterShare",
+            "value": 0
+        },
+        {
+            "key": "googleShare",
+            "value": 0
+        },
+        {
+            "key": "whatsAppShare",
+            "value": 0
+        }
+    ],
+    "displayable": true,
+    "position": 0,
+    "noEmbed": false,
+    "analyticsMetadata": {
+        "media_segment": "Scanner - Espions Superstars",
+        "media_type": "Audio",
+        "media_segment_id": "10535171",
+        "media_episode_length": "3216",
+        "media_segment_length": "3216",
+        "media_number_of_segment_selected": "1",
+        "media_number_of_segments_total": "1",
+        "media_duration_category": "long",
+        "media_is_geoblocked": "false",
+        "media_is_web_only": "false",
+        "media_production_source": "produced.for.broadcasting",
+        "media_urn": "urn:rts:audio:10535171"
+    },
+    "eventData": "$fe3094922049b172$6601fb5da30e0cff135fd442553cafdcac98e8f091b97845f3627f46055807449028094764462cf1b3a16f120ba8b1fd52dd759826dbec83fc72939bebfb41c5f697adf328478048fb3089f86965c2a317945b847a171052fd8cab283e51b22bc3a8dae7c4a28ae24740de0e45caa23e7aa2d7ca1628a9fd8bfc116f87894a3be6e69c9e4e6bdb98e066cee5e5a28e45c6b89f21c0c6da55fc8e2ef1320b5982d2689139b7c71cbfb7e0c621c94c302c52251c76564ed8ea62d70f9644ccfc0de9ba7c9b937e3ce723c3cf8dff040371428848c6364955c28f45d4ff97c00ad2ced3338ac19b351d90e8fcd612f06e56cf02d753be686bd3efdf25d65010002af27621186e853261eeea0db580234887fc2b44c2dbbb29f8f8625ff8ab64d1349210b18c2eb9c6dc0fd1c148382d23617a8ee4fadf83f266f17179abe979cedee6e0348ab9f26e021dc4c2cd18d2667c",
+    "fullLengthMarkIn": 0,
+    "fullLengthMarkOut": 0,
+    "resourceList": [
+        {
+            "url": "https://rtsww-a-d.rts.ch/couleur3/programmes/scanner/2019/scanner_20190704_full_scanner_3499d384-4f02-414f-ad24-89f541a9cdd2-128k.mp3?mediaId=10535171",
+            "quality": "HQ",
+            "protocol": "HTTPS",
+            "encoding": "MP3",
+            "mimeType": "audio/mpeg",
+            "presentation": "DEFAULT",
+            "streaming": "PROGRESSIVE",
+            "dvr": false,
+            "live": false,
+            "mediaContainer": "NONE",
+            "audioCodec": "MP3",
+            "videoCodec": "NONE",
+            "tokenType": "NONE",
+            "analyticsMetadata": {
+                "media_streaming_quality": "HQ",
+                "media_special_format": "DEFAULT",
+                "media_url": "https://rtsww-a-d.rts.ch/couleur3/programmes/scanner/2019/scanner_20190704_full_scanner_3499d384-4f02-414f-ad24-89f541a9cdd2-128k.mp3?mediaId=10535171"
+            }
+        },
+        {
+            "url": "rtmp://stream.tsr.ch/ondemand/mp3:audio/couleur3/programmes/scanner/2019/scanner_20190704_full_scanner_3499d384-4f02-414f-ad24-89f541a9cdd2-128k",
+            "quality": "HQ",
+            "protocol": "RTMP",
+            "encoding": "AAC",
+            "mimeType": "audio/mp4; codecs=\"mp4a.40.2\"",
+            "presentation": "DEFAULT",
+            "streaming": "RTMP",
+            "dvr": false,
+            "live": false,
+            "mediaContainer": "NONE",
+            "audioCodec": "AAC",
+            "videoCodec": "NONE",
+            "tokenType": "NONE",
+            "analyticsMetadata": {
+                "media_streaming_quality": "HQ",
+                "media_special_format": "DEFAULT",
+                "media_url": "rtmp://stream.tsr.ch/ondemand/mp3:audio/couleur3/programmes/scanner/2019/scanner_20190704_full_scanner_3499d384-4f02-414f-ad24-89f541a9cdd2-128k"
+            }
+        }
+    ]
+}

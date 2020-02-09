@@ -4,7 +4,7 @@ import sanitize from 'sanitize-filename';
 import NodeID3 from 'node-id3';
 import URL from 'url';
 import ProgressBar from 'cli-progress';
-import DownloadEpisode from './DownloadEpisode';
+import DownloadEpisode from '../../ts/contexts/DownloadEpisode';
 
 export default {
     buildContext({url, destinationFolder}) {
